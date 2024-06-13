@@ -1,0 +1,33 @@
+# Set your development variables here
+# Depending on your settings some stages/jobs will be added or removed.
+variables:
+  RUN_COMPOSER: "false" # Set to "true" if you want to run Composer commands
+  RUN_NPM: "false" # Set to "true" if you want to run NPM commands
+  BUMP_STAGING_ASSETS: "false" # Set to "true" if you want to bump staging assets
+  RUN_ASSET_DEPLOY: "false" # Set to "true" if you want to run asset deployment
+  DEPLOY_ASSETS_COMMAND: "grunt deploy-jenkins" # Command to deploy assets
+  RUN_PHP_UNIT_TESTS: "false" # Set to "true" if you want to run PHP unit tests
+  RUN_JS_UNIT_TESTS: "false" # Set to "true" if you want to run JavaScript unit tests
+  BUILD_PAGES: "false" # Set to "true" if you want to build pages
+
+# Include our package for deploying plugins
+include:
+  - project: wpdev/wordpress-pipeline
+    file: /ci/plugin-deploy.yml # Include the plugin deployment pipeline
+
+# Add sites here you wish to deploy to
+# Must extend .deploy_via_ipi
+# Must include variables PROD_NAME and STAGING_NAME
+# These are WPEngine site names
+
+Deploy to Websiteone:
+  extends: .deploy_via_ipi # Extend the .deploy_via_ipi job
+  variables:
+    PROD_NAME: example-site-one-production # WPEngine production site name
+    STAGING_NAME: example-site-one-staging # WPEngine staging site name
+
+Deploy to Websitetwo:
+  extends: .deploy_via_ipi # Extend the .deploy_via_ipi job
+  variables:
+    PROD_NAME: example-site-two-production # WPEngine production site name
+    STAGING_NAME: example-site-two-staging # WPEngine staging site name
