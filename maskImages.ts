@@ -1,7 +1,7 @@
 import { Page, Locator } from "@playwright/test";
 
 /**
- * Workaround for featured image false negatives due to rendering differences
+ * Preventing false positives by masking images
  *
  * @param {Page} page - The Playwright page object
  * @returns             Locators for all images on the page
