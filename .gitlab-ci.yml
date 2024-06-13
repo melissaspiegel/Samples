@@ -12,7 +12,7 @@ variables:
 
 # Include our package for deploying plugins
 include:
-  - project: wpdev/wordpress-pipeline
+  - project: wp/wordpress-pipeline
     file: /ci/plugin-deploy.yml # Include the plugin deployment pipeline
 
 # Add sites here you wish to deploy to
