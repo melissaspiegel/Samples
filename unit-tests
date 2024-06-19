@@ -1,0 +1,48 @@
+<?php //phpcs:ignore
+/**
+ * Class Tests_Includes_Migrations_MwmMigrator_GetMigrationFiles
+ *
+ * @package Indeed\MarketingWebModules
+ */
+
+use Indeed\MarketingWebModules\Migrations\MwmMigrator;
+
+/**
+ * Tests for MwmMigrator->getMigrationFiles()
+ *
+ * @group migration
+ * @group migrator
+ */
+class Tests_Includes_Migrations_MwmMigrator_GetMigrationFiles extends \WP_UnitTestCase {
+
+	/**
+	 * Instance of class
+	 *
+	 * @var mixed $migrator Instance of migrator class
+	 */
+	private static $migrator;
+
+	/**
+	 * Run once before all tests
+	 */
+	public static function wpSetUpBeforeClass() {
+		self::$migrator = new MwmMigrator( __DIR__ . '/migrations/' );
+	}
+
+	/**
+	 * Run once after all tests are done
+	 */
+	public static function wpTearDownAfterClass() {
+
+	}
+
+	/**
+	 * Test getting migration files
+	 */
+	public function test_get_migration_files() {
+		$result   = self::$migrator->getMigrationFiles();
+		$expected = array( 2 => '2021_05_03_1100_test_migration.php' );
+
+		$this->assertEquals( $expected, $result );
+	}
+}
