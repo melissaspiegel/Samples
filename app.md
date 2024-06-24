@@ -2,7 +2,7 @@ The Marketing Web Modules plugin for WordPress, developed by the Indeed WordPres
 
 ## Key Functionalities
 
-1. ###Custom Post Types and Templates###
+1.  **Custom Post Types and Templates**
     - Supports multiple custom post types that can be assigned through a network settings page.
     - Includes specific templates like `recruiter-hub-modular-pages.php` and `recruiter-hub-blocks.php` for organizing and displaying content.
 2. **Advanced Custom Fields (ACF)**
